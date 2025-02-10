@@ -12,6 +12,13 @@ header {
     padding: 20px;
 }
 
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
 .content {
     max-width: 800px;
     margin: 20px auto;
@@ -34,28 +41,24 @@ h1, h2 {
     margin: 0 auto 20px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.work-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
 }
 
-ul li {
+.work-box {
     background: #0073e6;
     color: white;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 15px;
     border-radius: 5px;
-}
-
-footer {
-    margin-top: 20px;
-    padding: 10px;
-    background: #333;
-    color: white;
-}
-
-a {
-    color: #0073e6;
+    text-align: center;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
+}
+
+.work-box:hover {
+    background: #005bb5;
 }
