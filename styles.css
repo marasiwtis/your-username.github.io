@@ -1,64 +1,43 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    background: #0073e6;
-    color: white;
-    padding: 20px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
-
-.content {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-h1, h2 {
-    color: #0073e6;
-}
-
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 20px;
-}
-
-.work-boxes {
+/* Contact Form Styles */
+form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 20px 0;
+    max-width: 500px;
+    margin: auto;
 }
 
-.work-box {
-    background: #0073e6;
-    color: white;
-    padding: 15px;
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
 }
 
-.work-box:hover {
-    background: #005bb5;
+textarea {
+    height: 120px;
+}
+
+button {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+#form-message {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
 }
