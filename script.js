@@ -4,26 +4,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent page reload
-        
-        // Validate Fields
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const subject = document.getElementById("subject").value.trim();
-        const message = document.getElementById("message").value.trim();
 
-        if (name === "" || email === "" || subject === "" || message === "") {
-            alert("❌ Please fill in all fields.");
-            return;
-        }
+        // Send the form using Formspree
+        fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+        })
+        .then(response => {
+            if (response.ok) {
+                formMessage.textContent = "✅ Message Sent Successfully!";
+                formMessage.classList.remove("hidden");
+                formMessage.style.color = "green";
+                form.reset();
+            } else {
+                formMessage.textContent = "❌ Failed to send message. Try again.";
+                formMessage.classList.remove("hidden");
+                formMessage.style.color = "red";
+            }
+        })
+        .catch(() => {
+            formMessage.textContent = "❌ Network error. Please try again later.";
+            formMessage.classList.remove("hidden");
+            formMessage.style.color = "red";
+        });
 
-        if (!email.includes("@") || !email.includes(".")) {
-            alert("❌ Please enter a valid email.");
-            return;
-        }
-
-        // Simulate sending the form (you can replace this with an actual email service)
-        form.reset();
-        formMessage.classList.remove("hidden");
-        setTimeout(() => formMessage.classList.add("hidden"), 3000);
+        // Hide message after 3 seconds
+        setTimeout(() => {
+            formMessage.classList.add("hidden");
+        }, 3000);
     });
 });
