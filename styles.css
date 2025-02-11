@@ -26,9 +26,9 @@ footer {
     color: white;
 }
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 10%;
     border: 3px solid #005bb5;
 }
