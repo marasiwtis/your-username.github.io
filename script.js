@@ -1,29 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contact-form");
-    const formMessage = document.getElementById("form-message");
 
     form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent page reload
-        
-        // Validate Fields
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const subject = document.getElementById("subject").value.trim();
-        const message = document.getElementById("message").value.trim();
+        event.preventDefault();
 
-        if (name === "" || email === "" || subject === "" || message === "") {
-            alert("❌ Please fill in all fields.");
-            return;
-        }
-
-        if (!email.includes("@") || !email.includes(".")) {
-            alert("❌ Please enter a valid email.");
-            return;
-        }
-
-        // Simulate sending the form (you can replace this with an actual email service)
-        form.reset();
-        formMessage.classList.remove("hidden");
-        setTimeout(() => formMessage.classList.add("hidden"), 3000);
+        emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form, "YOUR_USER_ID")
+            .then(function () {
+                alert("✅ Message sent successfully!");
+                form.reset();
+            }, function (error) {
+                alert("❌ Failed to send message. Try again.");
+                console.error(error);
+            });
     });
 });
