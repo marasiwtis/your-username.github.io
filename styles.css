@@ -32,3 +32,8 @@ footer {
     border-radius: 10%;
     border: 3px solid #005bb5;
 }
+
+/* Utility class to hide elements */
+.hidden {
+    display: none;
+}
